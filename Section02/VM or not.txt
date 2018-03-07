@@ -1,0 +1,5 @@
+Docker containers are just processes
+
+(on linux video example)
+
+It was possible to see the docker container process just like any other process
