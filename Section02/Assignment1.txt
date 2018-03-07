@@ -1,0 +1,33 @@
+Assignment is to run 3 containers:
+- nginx -> 80:80
+- mysql -> 3306:3306 
+    --env to pass MYSQL_RANDOM_ROOT_PASSWORD=yes
+- httpd -> 8080:80
+
+Commands to run:
+
+docker container run --publish 80:80 --name nginx nginx
+    To test:
+        - Open localhost:80 on browser
+
+docker container run --publish 8080:80 --name httpd httpd
+    To test:
+        - Open localhost:8080 on browser
+        - You will see the GET request if you are still running the container
+
+docker container run --publish 3306:3306 -e MYSQL_ROOT_PASSWORD=thisisnotarealpassword --name mysqldb mysql 
+    To test:
+        - Try connecting with mysql workbench
+
+
+To see the containers that were created:
+
+docker container ls
+
+To stop the containers:
+
+docker container stop (id) (id) (id)
+
+To remove:
+
+docker container rm (id) (id) (id)
