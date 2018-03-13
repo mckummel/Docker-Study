@@ -1,0 +1,28 @@
+Containers talk to each other without -p
+It is advised to create a network for each app
+    - For unrelated apps
+
+------------------------------------------
+
+To skip virtual networks:
+
+--net=host
+
+
+------------------------------------------
+
+docker container run -p 80:80 --name webhost -d nginx
+
+Takes host port 80 and routes to container port 80
+
+docker container port webhost
+
+Shows which ports are forwarding to that container
+
+docker container inspect --format '{{ .NetworkSettings.IPAddress }}' webhost
+
+Different network than the host local network
+
+------------------------------------------
+
+

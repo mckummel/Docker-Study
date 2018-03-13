@@ -1,0 +1,34 @@
+-t pseudo tty
+-i interactive 
+bash shell to work with
+
+docker container run -it --name nginx nginx bash
+
+If you type ls you can see we are on the filesystem
+
+If we exit bash the container will stop
+
+-----------------------------------------
+
+We can run an ubuntu image using:
+
+docker container run -it --name ubuntu ubuntu 
+
+We can install things on ubuntu using apt-get 
+
+----------------------------------------
+
+We can use:
+
+docker container exec -it mysql bash
+
+to use bash on an existing container
+
+
+----------------------------------------
+
+Some linux distributions may not have bash, for example alpine
+but it has sh:
+
+
+docker container run -it --name alpine alpine sh
