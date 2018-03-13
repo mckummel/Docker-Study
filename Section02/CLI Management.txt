@@ -1,0 +1,65 @@
+Show networks: 
+docker network ls
+
+Inspect a network: 
+docker network inspect
+
+Create: 
+docker network create --driver
+
+Attach a network to a running container: 
+docker network connect
+
+Detach a network from a running container:
+docker network disconnect
+
+
+---------------------------------
+Default docker network ls response:
+
+3 network names:
+bridge, host and none
+bridge is the default docker virtual network. It's a NAT behind the host
+host skips docker network and attached to the host network interface
+none interface that is not attached to anything
+---------------------------------
+
+docker network inspect
+
+Shows the containers that use the network, the parameters such as: subnet and gateway, id, when it was created... etc.
+
+----------------------------------
+
+docker network create (name)
+
+Creates a new network with the built in "bridge" network
+
+You can specify:
+Different network drivers, ipv4 or ipv6, ip ranges, restrict network access
+
+
+-----------------------------------
+
+docker network create new_net
+
+docker network inspect new_net
+
+docker container run -d --name nginx --network new_net nginx
+
+docker network inspect new_net
+    You will see the container that is using it now
+
+docker container run --name nginx2 nginx
+    Run another container that is not attached to the new_net
+
+docker network inspect new_net
+
+docker network connect (network id) (container id)
+    Attach the nginx2 container to the new_net
+
+docker network inspect new_net
+    It's connected!
+
+docker network disconnect (network id) (container id)
+
+docker network inspect new_net
