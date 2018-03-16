@@ -1,0 +1,25 @@
+To create a new network:
+
+docker network create new-net
+
+To create the elasticssearch containers:
+
+docker container run --name ela1 --net-alias test1 --network new-net elasticsearch:2
+
+docker container run --name ela2 --net-alias test1 --network new-net elasticsearch:2
+
+To create the alpine container:
+
+ docker container run --name alp -it --network new-net alpine
+
+Run inside alpine:
+    nslookup test1
+
+Centos:
+
+docker container run --net new-net -it centos
+
+and run more than one time inside centos:
+
+curl -s test1:9200
+
