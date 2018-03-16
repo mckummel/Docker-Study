@@ -1,0 +1,20 @@
+To start ubuntu:
+
+docker container run -it --name ubuntu ubuntu:14.04
+
+To start centos:
+
+docker container run -it --name cent centos:7
+
+To start and attach to them (if you leave and they stop running):
+
+docker container start -a <id>
+docker container attach <id>
+
+Attach ubuntu:
+    apt-get update && apt-get install curl
+    curl --version
+
+Attach centos
+    yum update curl
+    curl --version
