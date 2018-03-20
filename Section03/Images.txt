@@ -1,0 +1,40 @@
+To find docker images:
+
+https://hub.docker.com/explore/
+
+An image is the applications binaries and dependencies and how to run it.
+    "Made up of a series of file system changes and metadata"
+We can have our app binaries as images... or Ubuntu, Apache, mongodb, mysql, node...
+
+It's possible to find a lot about official images on docker hub. 
+On docker hub there are non-official images... (made by anyone)
+
+We can download different versions of an image using different tags (when we are going to download it):
+    stable, latest, alpine, 1.11(version numbers), 1
+    The same version can have more than one tag: lastest, (version number), 10, 10.0, 10.0.0
+
+If we run two containers of a single image, what's actually happnening
+it's that container 1 and 2 would be the difference between what's happening running and what's in on the image
+
+To see "parts" of an image:
+
+docker history <image>
+
+To see metadata of an image:
+
+docker image inspect <image>
+
+------------------------------------
+
+latest is generally the newest version available, and it's also the default used
+
+------------------------------------
+
+It's possible to upload an image to my repository using:
+
+docker login 
+    Must be logged in to upload the image
+
+docker image push <id/>
+
+docker logout
