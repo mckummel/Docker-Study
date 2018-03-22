@@ -1,0 +1,37 @@
+Default name:
+Dockerfile
+
+Dockerfile are the instructions when building the docker image
+
+Commands:
+
+FROM
+    image:tag
+
+ENV
+    environment variables
+
+RUN
+    for example:
+    apt-get update
+    apt-get install <something>
+
+EXPOSE
+    by default no tcp or udp ports are open inside a container
+    expose the ports on the docker virtual network
+
+CMD 
+    final command that run on the container is launched
+    only one is allowed
+
+WORKDIR
+    change working directory
+
+-------------------------------------
+
+Building images:
+
+docker image build -t <imagename> .
+    . means to build the dockerfile in the local directory
+
+Each step when building corresponds to a command inside the dockerfile
