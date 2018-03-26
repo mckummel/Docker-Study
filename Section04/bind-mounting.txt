@@ -1,0 +1,12 @@
+Is when a file/directory is mapped from a host to a container.
+
+Can't be used at the dockerfile
+    container run -v hostlocation:containerlocation
+
+Using the provided dockerfile:
+
+docker container run -d --name nginx -p 80:80 -v $(pwd):/urs/share/nginx/html nginx
+    - $(pwd) is the current working directory
+
+
+Bash into nginx and check out the files inside the directory. Every file in the current windows working dir is showing there!
