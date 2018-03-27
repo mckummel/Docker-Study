@@ -1,0 +1,48 @@
+Tool to define and run Docker apps
+    -   Configure relationships between containers
+    -   save docker run settings
+    -   one-liner dev env startups
+    -   YAML formatted file
+
+Command to start and run app:
+
+    - docker-compose up
+
+-----------------------------------------------
+
+docker-compose.yml is the default name
+
+But any name can be used with:
+    - docker-compose -f
+
+
+--------------------------------------------
+Example:
+
+version: '3.1'
+
+services: #containers
+    servicename:
+        image: #optional if used on build:
+        command: #replace image's CMD
+        environment: #same as -e
+        volumes: #same as -v
+    servicename2:
+
+volumes: #same as volume create
+
+networks: #same as network create
+
+
+-----------------------------------------
+Jekyll example:
+
+version: '2'
+
+services:
+    jekyll:
+        image:
+        volumes:
+         - .:/site
+         ports:
+         - '80:4000'
