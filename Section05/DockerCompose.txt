@@ -8,6 +8,10 @@ Command to start and run app:
 
     - docker-compose up
 
+To stop all containers and remove containers volumes and networks
+
+    - docker-compose down
+
 -----------------------------------------------
 
 docker-compose.yml is the default name
