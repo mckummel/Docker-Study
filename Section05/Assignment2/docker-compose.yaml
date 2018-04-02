@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+    drupal:
+      image: my-drupal
+      build: .
+      ports:
+        - '8080:80'
+    postgres:
+      image: postgres:10.3
+      ports:
+        - '5432:5432'
+      environment:
+        - POSTGRES_PASSWORD:root123
+      volumes:
+        - drupal-data:/var/lib/postgresql/data
+
+volumes:
+  drupal-data:

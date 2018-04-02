@@ -1,0 +1,32 @@
+Verify swarm status:
+
+-   docker info
+
+To start docker swarm:
+
+-   docker swarm init
+
+To view nodes:
+
+-   docker node ls
+
+Starting an image:
+
+-   docker service create alpine ping 8.8.8.8
+
+To view services:
+
+-   docker service ls
+
+Changing the number of replicas:
+
+-   docker service update <id> --replicas <number>
+
+If I remove a replica using:
+
+- docker container rm -f <id>
+
+docker will launch a new replica to replace the one that was removed/failed.
+-------------------------------------
+
+We can only have one node leader at a time amongst the managers.
