@@ -1,0 +1,38 @@
+Swarm Assignment 1 steps
+
+Node 1
+-   docker swarm init --advertise-addr eth0
+
+Node 2
+
+-   docker swarm join --token ... manager token
+
+Node 3
+
+-   docker swarm join --token ... manager token
+
+Node 1
+
+- docker network create -d overlay backend
+- docker network create -d overlay frontend
+
+-----------------------------------
+vote
+
+docker service create --name vote -p 80:80 --network frontend docker/example-voting-app-vote
+
+redis
+
+docker service create --name redis --network frontend --replicas 2 redis:3.2
+
+workers
+
+docker service create --name worker --network frontend --network backend docker/example-voting-app-worker
+
+db
+
+docker service create --name db --network backend --mount type=volume,source=db-data,target=/var/lib/postgresql/data postgres:9.4
+
+result
+
+docker service create --name result --network backend -p 5001:80 docker/example-voting-app-result
