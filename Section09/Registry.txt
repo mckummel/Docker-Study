@@ -1,0 +1,19 @@
+It's possible to use other registries other than docker hub.
+
+To run a registry container:
+
+-   docker container run -d -p 5000:5000 --name registry registry
+
+To pull an image to docker hub:
+
+-   docker pull <imagename>
+
+To send to our registry we need to tag the image:
+
+-   docker tag <imagename> 127.0.0.1:5000/<imagename>
+
+When we pull the above image docker will see that there's an ip/port and will push to our registry
+
+Creating registry using bind mount:
+
+-   docker container run -d -p 5000:5000 --name registry -v $(pwd)/registry-data:/var/lib/registry registry

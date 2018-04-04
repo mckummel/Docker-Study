@@ -26,6 +26,10 @@ If I remove a replica using:
 
 - docker container rm -f <id>
 
+To get the join token:
+
+- docker swarm join-token manager
+
 docker will launch a new replica to replace the one that was removed/failed.
 -------------------------------------
 
